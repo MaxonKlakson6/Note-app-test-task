@@ -1,0 +1,19 @@
+@import url("src/static/fonts/index.scss");
+
+.header {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #282424;
+  border-bottom: 4px solid #6a9bde;
+  box-shadow: 0 2px 5px #6a9bde;
+}
+
+.title {
+  font-family: Bebas;
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+}

@@ -1,0 +1,12 @@
+@import url("src/static/fonts/index.scss");
+
+.wrapper {
+  background-color: #fff;
+  border-radius: 2px;
+
+  margin: 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

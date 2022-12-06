@@ -1,0 +1,52 @@
+@import url("src/static/fonts/index.scss");
+
+.wrapper {
+  height: 70px;
+  padding: 0 20px;
+  border-bottom: 2px solid #6a9bde;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.input {
+  width: 70%;
+  padding: 10px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  outline: 0;
+  color: #fff;
+  caret-color: #fff;
+  font-family: Fjalla, Oswald;
+  font-size: 18px;
+
+  &::placeholder {
+    color: #fff;
+  }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+}
+
+.button {
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  padding: 12px 10px;
+
+  color: #fff;
+  font-family: Fjalla, Oswald;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #fff;
+    color: #404444;
+  }
+
+  &:active {
+    background-color: #fff;
+    color: #6a9bde;
+  }
+}

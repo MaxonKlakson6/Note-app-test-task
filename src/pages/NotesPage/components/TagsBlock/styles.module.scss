@@ -1,0 +1,34 @@
+@import url("src/static/fonts/index.scss");
+
+.wrapper {
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tagsHolder {
+  display: flex;
+  gap: 5px;
+  align-self: center;
+}
+
+.addTagButton {
+  padding: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  color: #404444;
+  border: 2px solid #404444;
+
+  font-family: Roboto;
+
+  &:hover {
+    border-color: #6a9bde;
+    color: #6a9bde;
+  }
+
+  &:active {
+    color: #fff;
+    background-color: #6a9bde;
+    border-color: #6a9bde;
+  }
+}

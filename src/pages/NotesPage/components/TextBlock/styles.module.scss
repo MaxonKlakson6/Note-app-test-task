@@ -1,0 +1,39 @@
+@import url("src/static/fonts/index.scss");
+
+.wrapper {
+  padding: 10px;
+  border-bottom: 1px solid #404444;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-family: Roboto;
+  color: #404444;
+}
+
+.buttonsHolder {
+  display: flex;
+  gap: 10px;
+}
+
+.controlButton {
+  padding: 5px;
+  border: 2px solid #404444;
+  border-radius: 5px;
+  background-color: #404444;
+  cursor: pointer;
+
+  font-family: Roboto;
+  color: #ffffff;
+
+  &:hover {
+    background-color: #fff;
+    color: #404444;
+  }
+
+  &:active {
+    background-color: #fff;
+    color: #6a9bde;
+    border-color: #6a9bde;
+  }
+}

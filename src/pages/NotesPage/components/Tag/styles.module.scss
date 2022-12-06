@@ -1,0 +1,33 @@
+.tag {
+  padding: 3px;
+  border-radius: 10px;
+  background-color: #6a9bde;
+
+  font-family: Roboto;
+  font-size: 12px;
+  color: #fff;
+}
+
+.buttonDelete {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-size: 11px;
+  border: 0;
+  cursor: pointer;
+  background-color: #404444;
+
+  & > img {
+    width: 8px;
+    height: 8px;
+  }
+
+  &:hover {
+    border-color: #fff;
+    background-color: rgba(255, 0, 0, 0.8);
+  }
+
+  &:hover > img {
+    fill: #fff;
+  }
+}
