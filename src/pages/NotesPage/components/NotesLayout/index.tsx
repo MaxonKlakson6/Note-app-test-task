@@ -2,6 +2,7 @@ import type { ChangeEvent, FormEvent } from "react";
 
 import NotesCreator from "src/pages/NotesPage/components/NotesCreator";
 import NotesList from "src/pages/NotesPage/components/NotesList";
+import NotesFilter from "src/pages/NotesPage/components/NotesFilter";
 
 import type { Note, NotesForm } from "src/pages/NotesPage/types";
 
@@ -31,6 +32,7 @@ const NotesLayout = ({
         handleChangeForm={handleChangeForm}
         handleCreateNote={handleCreateNote}
       />
+      <NotesFilter filterValue={form.noteFilter} onChange={handleChangeForm} />
       <NotesList
         notes={notes}
         handleDeleteNote={handleDeleteNote}

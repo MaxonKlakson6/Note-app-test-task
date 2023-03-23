@@ -1,9 +1,14 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import type { FormEvent } from "react";
 
 import NotesLayout from "src/pages/NotesPage/components/NotesLayout";
 
-import { useAppDispatch, useAppSelector, useForm } from "src/hooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+  useDebounce,
+  useForm,
+} from "src/hooks";
 import {
   createNote,
   deleteNote,
@@ -19,13 +24,16 @@ const NotesContainer = (): JSX.Element => {
 
   const [form, handleChangeForm, handleResetForm] = useForm<NotesForm>({
     noteCreator: "",
+    noteFilter: "",
   });
+
+  const debouncedFilter = useDebounce(form.noteFilter, 500);
 
   const handleCreateNote = (event: FormEvent): void => {
     event.preventDefault();
     if (form.noteCreator.trim()) {
       dispatch(createNote(form.noteCreator));
-      handleResetForm();
+      handleResetForm("noteCreator");
     }
   };
 
@@ -37,10 +45,24 @@ const NotesContainer = (): JSX.Element => {
     dispatch(turnOnEditMode(id));
   }, []);
 
+  const filtredNotes = useMemo(() => {
+    if (debouncedFilter) {
+      return notes.filter((note) => {
+        const isContain = note.tags.some((tag) =>
+          tag.text.toLowerCase().includes(debouncedFilter)
+        );
+
+        return isContain;
+      });
+    }
+
+    return notes;
+  }, [notes, debouncedFilter]);
+
   return (
     <NotesLayout
       form={form}
-      notes={notes}
+      notes={filtredNotes}
       handleChangeForm={handleChangeForm}
       handleCreateNote={handleCreateNote}
       handleDeleteNote={handleDeleteNote}

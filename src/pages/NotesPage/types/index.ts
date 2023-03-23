@@ -1,5 +1,6 @@
 export type NotesForm = {
   noteCreator: string;
+  noteFilter: string;
 };
 
 export type Tag = {

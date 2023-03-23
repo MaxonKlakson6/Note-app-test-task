@@ -4,7 +4,7 @@ import type { ChangeEvent } from "react";
 export type UseFormReturnValue<Form> = [
   form: Form,
   handleChangeForm: (event: ChangeEvent<HTMLInputElement>) => void,
-  handleResetForm: () => void
+  handleResetForm: (fieldName?: string) => void
 ];
 
 export const useForm = <InitialState>(
@@ -20,8 +20,15 @@ export const useForm = <InitialState>(
     }));
   };
 
-  const handleResetForm = (): void => {
-    setForm(initialState);
+  const handleResetForm = (fieldName?: string): void => {
+    if (fieldName) {
+      setForm((prevState) => ({
+        ...prevState,
+        [fieldName]: "",
+      }));
+    } else {
+      setForm(initialState);
+    }
   };
 
   return [form, handleChangeForm, handleResetForm];
